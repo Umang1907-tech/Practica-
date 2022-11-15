@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #demo {
+        height: 10vh;
+        width: 100vw;
+        text-align: center;
+        justify-content: center;
+        background-color: blue;
+    }
+
+    #test {
+        background-color: red;
+        height: 38vh;
+        width: 100vw;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #btn {
+        margin-top: 20px;
+        height: 30px;
+        width: 70px;
+        color: blueviolet;
+        background-color: chartreuse;
+        border: 2px solid red;
+        border-radius: 3px;
+    }
+
+    #gujarati {
+        margin-top: 10px;
+    }
+
+    span {
+        font-size: 35px;
+        color: green;
+    }
+
+    #demo1 {
+        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="demo">
+        <h1>Enter your marks</h1>
+    </div>
+
+    <div id="test">
+        <form action="#" name="myform" onsubmit="result()">
+            <div>
+                <label for="gujarati">Gujarati :-</label>
+                <input type="number" id="gujarati" min="0" max="100" style="width: 170px ;">
+            </div>
+            <br>
+            <div>
+                <label for="">English :-</label>
+                <input type="number" id="english" min="0" max="100" style="width: 170px ;">
+            </div>
+            <br>
+            <div>
+                <label for="">Maths :-</label>
+                <input type="number" id="maths" min="0" max="100" style="width: 170px ;">
+            </div>
+            <br>
+            <div>
+                <label for="">Science :-</label>
+                <input type="number" id="science" min="0" max="100" style="width: 170px ;">
+            </div>
+            <br>
+            <div>
+                <label for="">Hindi :-</label>
+                <input type="number" id="hindi" min="0" max="100" style="width: 170px ;">
+            </div>
+
+            <button id="btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="demo1">
+        <span id="total" class="span"></span>
+        <span id="per" class="span"></span>
+        <span id="res" class="span"></span>
+    </div>
+
+    <script>
+        function result() {
+
+            var guj = document.getElementById('gujarati').value;
+            var eng = document.getElementById('english').value;
+            var math = document.getElementById('maths').value;
+            var sci = document.getElementById('science').value;
+            var hin = document.getElementById('hindi').value;
+
+
+            var total = +guj + +eng + +math + +sci + +hin;
+            document.getElementById("total").innerHTML = "Your total is" + " " + total;
+
+            var per = (total / 500) * 100;
+            document.getElementById("per").innerHTML = "Your per% is" + " " + per.toFixed(2);
+
+
+            if (per >= 90) {
+                document.getElementById('res').innerHTML = "Grade : A";
+            }
+
+            else if (per >= 70) {
+                document.getElementById('res').innerHTML = "Grade : B";
+            }
+            else if (per >= 60) {
+                document.getElementById('res').innerHTML = "Grade : C";
+            }
+            else if (per >= 40) {
+                document.getElementById('res').innerHTML = "Grade : D";
+            }
+            else {
+                document.getElementById('res').innerHTML = "Grade : Fail";
+                document.getElementById('res').style.color = "red";
+                document.getElementById('per').style.color = "red";
+                document.getElementById('total').style.color = "red";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
